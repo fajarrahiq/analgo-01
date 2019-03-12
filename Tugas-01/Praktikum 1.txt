@@ -1,0 +1,152 @@
+Fajar Adiyansyah Rahiq
+140810160006
+
+1 
+m = victor
+victor ? Bertha
+if (Bertha == free) //True
+(Victor, Bertha)
+
+m = wyatt
+wyatt ? Diane
+if (Diane == free) //true
+(wyatt, diane)
+
+m = Xavier
+Xavier ? Bertha
+If  (bertha == free)  //false
+Else If (bertha prefer victor) //false
+	Else (bertha prefer Xavier) //true
+		(Xavier, bertha)
+		Victor free
+
+m = Yancey
+Yancey ? Amy
+If (Amy == free) //true
+	(Yancey, Amy)
+
+m = Zeus
+Zeus ? Bertha
+If (Bertha == free) //false
+Else If (bertha prefer Xavier) // true
+		(Xavier, Bertha)
+		Zeus free
+m = Victor
+Victor ? Amy
+If (Amy == free) //false
+Else If (amy prefer yancey) //false
+	Else (amy prefer victor) //true
+		(Victor, Amy)
+		Yancey free
+m = Zeus
+Zeus ? Diane
+If (Diane == free) //false
+Else If (Diane prefer wyatt) //false
+	Else (Diane prefer zeus) //true
+		(Zeus, Diane)
+		Wyatt free
+
+m = Yancey
+yancey ? Diane
+if (diane == free) //false
+else if (diane prefer zeus) //true
+		(Zeus, Diane)
+		Yancey free
+
+m = wyatt
+wyatt ? bertha
+if (bertha == free) // false
+else if (bertha prefer Xavier) //true
+		(Xavier, Bertha)
+		Wyatt free
+
+m = yancey
+yancey ? clare
+if (clare == free) //true
+ (Yancey, Clare)
+
+m = wyatt
+wyatt ? Amy
+if (amy == free) //false
+else if (amy prefer victor) //true
+		(Victor, Amy)
+		Wyatt free
+
+m = wyatt
+wyatt ? Clare
+if (clare == free) //false
+else if (clare prefer yancey) //false
+	else (clare prefer wyatt) //true
+		(Wyatt, Clare)
+		Yancey free
+
+m = yancey
+yancey ? Erika
+if (Erika == free) //true
+ (Yancey, Erika)
+
+Jadi pasangannya yang terbentuk adalah :
+•	Yancey, Erika
+•	Wyatt, Clare
+•	Victor, Amy
+•	Xavier, bertha
+•	Zeus, Diane
+
+
+Anda diminta untuk membuktikan algoritma G-S benar dengan menjawab pertanyaan berikut: 
+
+Fakta (1.1):  Seorang wanita tetap bertunangan dari titik di mana dia menerima proposal pertamanya;
+ dan urutan mitra yang bertunangan dengannya menjadi lebih baik dan lebih baik lagi (hal ini sesuai dengan daftar preferensi wanita).
+ 
+Fakta (1.2):  Urutan wanita yang dilamar pria lebih buruk dan lebih buruk lagi (hal ini sesuai dengan daftar preferensi pria).
+ 
+Teorema (1.3):  Algoritma G-S berakhir setelah paling banyak n2 iterasi menggunakan While Loop. Buktikan! 
+
+Jawab :
+Algoritma G-S berakhir setelah paling banyak n2 iterasi menggunakan While Loop
+Kami berpendapat bahwa algoritma ini terus membuat kemajuan. Dalam setiap iterasi loop sementara, 
+seorang pria lajang melamar wanita berikutnya dalam daftar pilihannya, 
+seseorang yang belum pernah ia ajukan sebelumnya. 
+Karena ada n laki-laki dan setiap daftar preferensi memiliki n panjang, ada sebagian besar proposal yang dapat terjadi. 
+Jadi jumlah iterasi yang dapat terjadi paling banyak adalah n2. Kami selanjutnya membuktikan bahwa pencocokan yang dikembalikan stabil. 
+Untuk melakukan itu, kami melakukan dua pengamatan: yang pertama pada urutan pria yang bertunangan dengan wanita, dan yang kedua pada pria lajang.
+
+Teorema (1.4):  Jika seorang pria bebas di beberapa titik dalam eksekusi algoritma, maka ada seorang wanita yang belum dia ajak bertunangan. Buktikan!
+
+Jawab:
+Buktinya dengan kontradiksi. 
+Misalkan ada waktu tertentu dalam pelaksanaan algoritma ketika seorang pria lajang, 
+namun telah mengusulkan kepada setiap wanita. 
+Ini berarti bahwa pada saat ini, setiap wanita telah diusulkan setidaknya satu kali. 
+Dengan Lemma 1, kami mendapatkan bahwa setiap wanita bertunangan. 
+Jadi, kita memiliki n wanita yang bertunangan dan karenanya n pria yang bertunangan, 
+yang menyiratkan bahwa m juga terlibat bertentangan dengan asumsi kita bahwa m adalah lajang
+
+
+Teorema (1.5):  Himpunan S yang dikembalikan saat terminasi adalah perfect matching Buktikan! 
+
+Jawab :
+Pria pasti hanya akan melamar apabila belum atau pasangan sebelumnya tidak cocok. 
+Wanita akan selalu memilih pria terbaik untuk bertunangan dengannya.
+Dengan itu Himpunan S adalah perfect matching dikarenakan teori diatas
+
+Teorema (1.6):  Sebuah eksekusi algoritma G-S mengembalikan satu set pasangan S. Set S adalah pasangan yang stabil. Buktikan!
+
+Jawab :
+Mengingat wawasan ini, kami sekarang dapat membuktikan bahwa algoritma berakhir setelah di sebagian besar negara. 
+Pertama, amati bahwa tidak ada pria yang bisa ditolak oleh semua wanita. 
+Asumsikan bahwa beberapa pria telah ditolak oleh semua wanita. 
+Di bawah algoritma, seorang wanita bebas tidak akan menolak proposal pria, yaitu, hanya wanita yang cocok yang dapat menolak proposal pria. 
+Dengan demikian, sudah ditolak oleh semua wanita, maka semua wanita pasti sudah cocok. 
+Namun, seorang wanita hanya dapat dicocokkan dengan paling banyak satu pria, 
+menyiratkan bahwa jika gratis, maka paling banyak 1 wanita dicocokkan. 
+dengan demikian, setidaknya salah satu harus tetap, 
+bebas dan tidak dapat ditolak oleh semua wanita. 
+Kedua, setiap iterasi dari loop sementara melibatkan tepat satu proposal. 
+Perhatikan bahwa karena pria bergerak monoton di daftar preferensi mereka, 
+tidak ada pria yang akan melamar wanita yang sama dua kali. 
+Karena tidak ada pria yang bisa ditolak oleh setiap wanita, dalam kasus terburuk, 
+seorang pria akan melamar semua wanita sebelum dicocokkan. Dengan demikian, 
+jumlah iterasi dari loop sementara paling tidak sebelum algoritma berhenti, 
+dan ketika berhenti, setiap pria dan wanita dicocokkan.
+
